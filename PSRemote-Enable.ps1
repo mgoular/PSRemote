@@ -6,7 +6,7 @@
 #  https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1
 #
 
-Set-Item -Path WSMan:\localhost\Client\TrustedHosts -Value '52.232.190.11' 
+Set-Item -Path WSMan:\localhost\Client\TrustedHosts -Value '146.1.1.1' 
 
 
 # Connect to remote machine...
@@ -24,7 +24,7 @@ $cred = Get-Credential
 
 # ED Wilson, the Scripting Guy...
 # https://blogs.technet.microsoft.com/heyscriptingguy/2013/12/11/use-powershell-to-create-remote-session/
-$rs1 = New-PSSession -ComputerName '52.179.8.137' -SessionOption $so -Credential $cred -UseSSL 
+$rs1 = New-PSSession -ComputerName '146.1.1.1' -SessionOption $so -Credential $cred -UseSSL 
 
 # $ls = New-PSSession -ComputerName Prev-SQL2016
 Copy-Item C:\Users\username\Downloads\some.exe -Destination "C:\" -ToSession $rs1
@@ -32,14 +32,14 @@ Copy-Item C:\Users\username\Downloads\some.exe -Destination "C:\" -ToSession $rs
 
 # Other uses of PSRemoting...
 
-Enter-PSSession -ComputerName '52.179.8.137'  -Credential $cred -UseSSL -SessionOption $so
+Enter-PSSession -ComputerName '146.1.1.1'  -Credential $cred -UseSSL -SessionOption $so
 
 <#
      Invoking commands on remote computers...
 #>
 
 #  Define an array of strings with the computer names (or IP addresses)...
-$computers = @('146.0.0.1','146.0.0.2')
+$computers = @('146.1.1.1','146.1.1.2')
 
 
 # Run a script block against the list of computers...
