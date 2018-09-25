@@ -1,10 +1,17 @@
-# Enable Remoting by going on to the remote machine 
-# and entering
-#
-#   Enable-PSRemoting -Force
-#
+################################################################################
+################################################################################
+## Script description :Enable Remoting by going on to the remote machine      ##
+## Enable-PSRemoting -Force                                                   ##
+## Name      : PSRemote-Enable.ps1                                            ##
+## Version   : 0.1                                                            ##
+## Date      :04/01/2016                                                      ##
+## Language  : PowerShell cmd-lets                                            ##
+## License   : MIT                                                            ##
+## Owner     : M.G                                                            ##
+## Authors   : M.G                                                            ##
+################################################################################
+################################################################################
 #  https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-5.1
-#
 
 Set-Item -Path WSMan:\localhost\Client\TrustedHosts -Value '146.1.1.1' 
 
@@ -22,7 +29,7 @@ $cred = Get-Credential
             Copying a large file over PSRemoting...
 #>
 
-# ED Wilson, the Scripting Guy...
+
 # https://blogs.technet.microsoft.com/heyscriptingguy/2013/12/11/use-powershell-to-create-remote-session/
 $rs1 = New-PSSession -ComputerName '146.1.1.1' -SessionOption $so -Credential $cred -UseSSL 
 
